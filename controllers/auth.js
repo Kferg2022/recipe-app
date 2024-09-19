@@ -1,4 +1,3 @@
-
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
@@ -12,7 +11,7 @@ exports.getLogin = (req, res) => {
   });
 };
 
-exports.postLogin = (req, res, next) => {
+exports.recipeLogin = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -71,7 +70,7 @@ exports.getSignup = (req, res) => {
   });
 };
 
-exports.postSignup = async (req, res, next) => {
+exports.recipeSignup = async (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) {
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -130,4 +129,3 @@ exports.postSignup = async (req, res, next) => {
     return next(err);
   }
 };
-

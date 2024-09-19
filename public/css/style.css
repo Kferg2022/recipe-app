@@ -1,0 +1,224 @@
+ /* Recipe */
+
+  .list-group-item:first-child, .list-group-item+.list-group-item{
+    border:none;
+  }
+
+  .list-group-item{
+    padding:.5rem 0;
+  }
+
+  .recipeSmallDetails{
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .recipeSmallDetails p{
+    padding-left:.5rem;
+  }
+
+  .img-fluid{
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px;
+  }
+  
+  .recipeNavBtn {
+    margin:.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .img-fluid {
+      height: 150px; /* Adjust height for smaller screens */
+    }
+  }
+
+
+  /* Profile */
+
+  body {
+    background-color: #f8f9fa;
+  }
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)!important;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .recipe-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  .recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-title {
+    height: 48px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+    
+  /* Feed */
+
+  body {
+    background-color: #f8f9fa;
+  }
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)!important;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .recipe-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  .recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-title {
+    height: 48px;
+    overflow: hidden;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+/* Comments */
+
+.btn-outline-primary {
+  color: #007bff;
+  background-color: #fff;
+  border-color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  }
+  
+  .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #0056b3;
+  }
+  
+  .comment-list {
+  padding-left: 0;
+  }
+  
+  .comment {
+  margin-bottom: 1.5rem;
+  }
+  
+  .reply-list {
+  padding-left: 2rem;
+  border-left: 2px solid #dee2e6;
+  }
+  
+  .reply {
+  margin-bottom: 1rem;
+  }
+  
+  .reply .card {
+  background-color: #f8f9fa;
+  }
+
+  /* Login Page */
+
+  body {
+    background-color: #f8f9fa;
+  }
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  }
+  .form-floating>label {
+    left: 0.75rem;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  /* Signup Page */
+
+  
+  body {
+    background-color: #f8f9fa;
+  }
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  }
+  .form-floating>label {
+    left: 0.75rem;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }

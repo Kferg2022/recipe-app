@@ -1,0 +1,211 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <!-- Recipe Header -->
+      <div class="text-center mb-4">
+        <h2 class="mb-3"><%= recipe.name %></h2>
+        <img class="img-fluid rounded" src="<%= recipe.image %>" alt="<%= recipe.name %>" />
+      </div>
+
+      <!-- Like/Unlike Button and Likes Count -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <form action="/recipe/<%= recipe.likedBy.includes(user.id) ? 'unlikeRecipe' : 'likeRecipe' %>/<%= recipe._id %>?_method=PUT" method="POST">
+          <button class="btn <%= recipe.likedBy.includes(user.id) ? 'btn-danger' : 'btn-outline-primary' %>">
+            <i class="fa fa-heart"></i>
+            <span class="ms-2"><%= recipe.likes %></span>
+          </button>
+        </form>
+
+        <!-- Edit or Delete Recipe -->
+        <% if (recipe.user && recipe.user._id.toString() === user.id) { %>
+          <div class="col-6 d-flex justify-content-end">
+            <a href="/recipe/editRecipe/<%= recipe._id %>" class="btn btn-secondary me-2">
+              <i class="fas fa-edit"></i> Edit
+            </a>
+            <form action="/recipe/deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger" type="submit">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+            </form>
+          </div>
+        <% } %>
+      
+      </div>
+
+      <!-- Recipe Details -->
+      <div class="mb-4 recipeSmallDetails">
+        <h4>Recipe Created By:</h4>
+        <p><%= user.userName %></p>
+      </div>
+      <div class="mb-4 recipeSmallDetails">
+        <h4>Cook Time:</h4>
+        <p><%= recipe.cookTime %></p>
+      </div>
+      <div class="mb-4 recipeSmallDetails">
+        <h4>Prep Time:</h4>
+        <p><%= recipe.prepTime %></p>
+      </div>
+      <div class="mb-4 recipeSmallDetails">
+        <h4>Servings:</h4>
+        <p><%= recipe.servings %></p>
+      </div>
+      <div class="mb-4">
+        <h4>Ingredients:</h4>
+        <ul class="list-unstyled">
+          <% recipe.ingredients.forEach(ingredient => { %>
+            <li>• <%= ingredient %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <div class="mb-4">
+        <h4>Directions:</h4>
+        <ol class="list-group list-group-numbered">
+          <% recipe.directions.forEach(direction => { %>
+            <li class="list-group-item"><%= direction %></li>
+          <% }) %>
+        </ol>
+      </div>
+
+      
+<!-- Comments -->
+  <div class="mt-5">
+    <h3>Comments</h3>
+    <ul class="comment-list list-unstyled">
+      <% for (let i = 0; i < comments.length; i++) { %>
+        <li class="comment mb-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text"><%= comments[i].comment %></p>
+              <p class="card-text"><small class="text-muted">Posted by: <%= comments[i].user ? comments[i].user.userName : 'Unknown User' %> | <%= moment(comments[i].createdAt).fromNow() %></small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-sm like-button <%= comments[i].likedBy.includes(user.id) ? 'btn-primary' : 'btn-outline-primary' %>" data-comment-id="<%= comments[i]._id %>">
+                  <i class="fa fa-thumbs-up"></i> <span class="like-count"><%= comments[i].likes %></span>
+                </button> 
+                <button class="btn btn-sm btn-outline-secondary reply-btn" data-comment-id="<%= comments[i]._id %>">
+                  Reply
+                </button>
+                <% if (comments[i].user && comments[i].user._id.toString() === user.id) { %>
+                  <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                  </form>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <div class="reply-form mt-2" id="reply-form-<%= comments[i]._id %>" style="display: none;">
+            <form action="/comment/createReply/<%= recipe._id %>/<%= comments[i]._id %>" method="POST">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="reply" placeholder="Write your reply...">
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary">Submit Reply</button>
+            </form>
+          </div>
+          <% if (comments[i].replies && comments[i].replies.length > 0) { %>
+            <ul class="reply-list list-unstyled mt-3">
+              <% for (let j = 0; j < comments[i].replies.length; j++) { %>
+                <li class="reply mb-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-text"><%= comments[i].replies[j].comment %></p>
+                      <p class="card-text"><small class="text-muted">
+                        Reply by: <%= comments[i].replies[j].user ? comments[i].replies[j].user.userName : 'Unknown User' %> 
+                        | <%= moment(comments[i].replies[j].createdAt).fromNow() %>
+                      </small></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <button class="btn btn-sm like-button <%= comments[i].replies[j].likedBy.includes(user.id) ? 'btn-primary' : 'btn-outline-primary' %>" data-comment-id="<%= comments[i].replies[j]._id %>">
+                          <i class="fa fa-thumbs-up"></i> <span class="like-count"><%= comments[i].replies[j].likes %></span>
+                        </button>
+                        <% if (comments[i].replies[j].user && comments[i].replies[j].user._id.toString() === user.id) { %>
+                          <form action="/comment/deleteComment/<%= comments[i].replies[j]._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                          </form>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% } %>
+            </ul>
+          <% } %>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+
+<!-- Add a Comment -->
+
+<div class="mt-5">
+  <h2>Add a comment</h2>
+  <form action="/comment/createComment/<%=recipe._id%>" method="POST">
+    <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <input type="text" class="form-control" id="comment" name="comment">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!-- Botton Nav-Profile and Feed -->
+
+<div class="col-6 mt-5">
+  <a class="btn btn-primary recipeNavBtn" href="/profile">Return to Profile</a>
+  <a class="btn btn-primary recipeNavBtn" href="/feed">Return to Feed</a>
+</div>
+</div>
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const likeButtons = document.querySelectorAll('.like-button');
+
+likeButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+  e.preventDefault();
+  const commentId = this.dataset.commentId;
+  const likeCount = this.querySelector('.like-count');
+  const isLiked = this.dataset.liked === 'true';
+
+  fetch(`/comment/likeComment/${commentId}?_method=PUT`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      if (isLiked) {
+        this.classList.remove('btn-primary');
+        this.classList.add('btn-outline-primary');
+        this.dataset.liked = 'false';
+      } else {
+        this.classList.remove('btn-outline-primary');
+        this.classList.add('btn-primary');
+        this.dataset.liked = 'true';
+      }
+      likeCount.textContent = data.likes;
+    }
+  })
+  .catch(error => console.error('Error:', error));
+});
+});
+}); 
+  document.addEventListener('DOMContentLoaded', function() {
+    const replyButtons = document.querySelectorAll('.reply-btn');
+    replyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const commentId = this.getAttribute('data-comment-id');
+        const replyForm = document.getElementById(`reply-form-${commentId}`);
+        replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+  });
+
+ 
+  </script> 
+
+<%- include('partials/footer') -%>
