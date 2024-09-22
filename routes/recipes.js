@@ -4,7 +4,7 @@ const upload = require("../middleware/multer");
 const recipesController = require("../controllers/recipes");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+//Post Routes 
 
 router.get("/:id", ensureAuth, recipesController.getRecipe);
 

@@ -30,31 +30,24 @@ module.exports = {
   },
   getRecipe: async (req, res) => {
     try {
-      const recipe = await Recipe.findById(req.params.id).populate('user', 'userName');
-      const comments = await Comment.find({recipe: req.params.id, parentComment: null})
-        .sort({createdAt: 'desc'})
-        .populate('user', 'userName')
-        .populate('likedBy')
+      const recipe = await Recipe.findById(req.params.id).populate("user");
+      const comments = await Comment.find({ recipe: req.params.id })
+        .sort({ createdAt: 1 })
+        .populate("user")
+        .populate("likedBy")
         .populate({
-          path: 'replies',
-          populate: [
-            {
-              path: 'user',
-              select: 'userName'
-            },
-            {
-              path: 'likedBy'
-            }
-          ]
-        })
-        .lean();
+          path: "replies",
+          populate: {
+            path: "user",
+          },
+        });
 
-      res.render("recipe.ejs", { recipe: recipe, comments: comments, user: req.user, moment: require('moment') });
+      res.render("recipe.ejs", { recipe: recipe, user: req.user, comments: comments, moment: require('moment') });
     } catch (err) {
       console.log(err);
-      res.status(500).send("An error occurred while fetching the recipe");
+      res.redirect("/profile");
     }
-  }, 
+  },
  createRecipe: async (req, res) => {
     try {
       // Upload image to cloudinary

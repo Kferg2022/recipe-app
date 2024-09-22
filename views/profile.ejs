@@ -1,79 +1,4 @@
-<!-- <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-      
-      <div class="mt-5">
-        <h2>Add a Recipe</h2>
-        <form action="/recipe/createRecipe" enctype="multipart/form-data" method="POST">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="cookTime" class="form-label">Cook Time</label>
-            <input type="text" class="form-control" id="cookTime" name="cookTime" required>
-          </div>
-          <div class="mb-3">
-            <label for="prepTime" class="form-label">Prep Time</label>
-            <input type="text" class="form-control" id="prepTime" name="prepTime" required>
-          </div>
-          <div class="mb-3">
-            <label for="servings" class="form-label">Servings</label>
-            <input type="number" class="form-control" id="servings" name="servings" required>
-          </div>
-          <div class="mb-3">
-            <label for="ingredients" class="form-label">Ingredients (one ingredient per line)</label>
-            <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="directions" class="form-label">Directions (one step per line)</label>
-            <textarea class="form-control" id="directions" name="directions" rows="5" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="imgUpload" class="form-label">Image</label>
-            <input type="file" class="form-control" id="imageUpload" name="file" required>
-          </div>
-          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-        </form>
-      </div>
-      </div>
-
-
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<recipes.length; i++) {%>
-          <div class="col-6 justify-content-between mt-5">
-            <a href="/recipe/<%= recipes[i]._id%>">
-              <img class="img-fluid" src="<%= recipes[i].image%>">
-            </a>
-            <a class='recipeLink' href="/recipe/<%= recipes[i]._id%>">
-              <button class="recipeNamesProfile"><%= recipes[i].name %></button>
-            </a>
-          
-          </div>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
-    </div>
-  </div>
-</div>
-<%- include('partials/footer') -%>
- 
-
-  -->
-
-  <%- include('partials/header') -%>
-
-  <%- include('partials/header') -%>
+<%- include('partials/header') -%>
 
   <div class="container-fluid bg-light py-5">
     <div class="container">
@@ -85,7 +10,7 @@
               <h2 class="card-title h4 mb-4">User Profile</h2>
               <p><strong>User Name:</strong> <%= user.userName %></p>
               <p><strong>Email:</strong> <%= user.email %></p>
-              <a href="/logout" class="btn btn-primary">Logout</a>
+              <a href="/logout" class="btn btn-primary w-100">Logout</a>
             </div>
           </div>
   

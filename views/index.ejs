@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<!-- <%- include('partials/header') -%>
 
 <main class="container-fluid p-0">
   <div class="row g-0 min-vh-100">
@@ -84,6 +84,221 @@
   }
   .bg-primary {
     background-color: #007bff !important;
+  }
+</style>
+
+<%- include('partials/footer') -%> -->
+
+<%- include('partials/header') -%>
+
+<main class="container-fluid p-0">
+    <div class="row g-0 min-vh-100">
+      <div class="col-lg-8 bg-gradient-primary position-relative overflow-hidden d-flex align-items-center justify-content-center">
+        <div class="text-white text-center p-5 position-relative z-index-1">
+          <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Discover Culinary Delights</h1>
+          <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">Join RecipeShare, where passion for food meets community. Create, share, and explore a world of flavors.</p>
+          <div class="d-flex justify-content-center animate__animated animate__fadeInUp animate__delay-2s">
+            <a href="/signup" class="btn btn-light btn-lg px-4 me-3 rounded-pill shadow-sm hover-lift">Start Cooking</a>
+            <a href="#features" class="btn btn-outline-light btn-lg px-4 rounded-pill hover-lift">Explore Features</a>
+          </div>
+        </div>
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-pattern"></div>
+      </div>
+      <div id="auth-section" class="col-lg-4 bg-light d-flex align-items-center justify-content-center">
+        <div class="card shadow-lg border-0 rounded-lg w-100 mx-4 animate__animated animate__fadeInRight">
+          <div class="card-header bg-white text-center py-4 border-0">
+            <h2 class="fs-4 fw-bold mb-0">Join RecipeShare</h2>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-grid gap-3">
+              <a href="/signup" class="btn btn-primary btn-lg rounded-pill hover-lift">Sign Up</a>
+              <a href="/login" class="btn btn-outline-primary btn-lg rounded-pill hover-lift">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <section id="features" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold animate__animated animate__fadeInUp">Why Choose RecipeShare?</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="card h-100 border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body text-center p-5">
+              <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                <i class="fas fa-utensils fa-2x"></i>
+              </div>
+              <h3 class="card-title h5 fw-bold">Share Your Recipes</h3>
+              <p class="card-text text-muted">Showcase your culinary creations and inspire others with your unique recipes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="card h-100 border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body text-center p-5">
+              <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                <i class="fas fa-search fa-2x"></i>
+              </div>
+              <h3 class="card-title h5 fw-bold">Discover New Dishes</h3>
+              <p class="card-text text-muted">Explore a vast collection of recipes from around the world and expand your culinary horizons.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="card h-100 border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body text-center p-5">
+              <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                <i class="fas fa-users fa-2x"></i>
+              </div>
+              <h3 class="card-title h5 fw-bold">Connect with Foodies</h3>
+              <p class="card-text text-muted">Join a vibrant community of food lovers, share tips, and make new friends who share your passion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 animate__animated animate__fadeInLeft">
+          <h2 class="fw-bold mb-4">Unleash Your Culinary Creativity</h2>
+          <p class="lead mb-4">With RecipeShare, you have the perfect platform to showcase your cooking skills, experiment with new flavors, and share your passion for food with a global community.</p>
+          <a href="/signup" class="btn btn-primary btn-lg rounded-pill hover-lift">Join Now</a>
+        </div>
+        <div class="col-lg-6 animate__animated animate__fadeInRight">
+          <img src="imgs/cooking together.jpg?height=400&width=600" alt="Cooking" class="img-fluid rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeInUp">What Our Users Say</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="card border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body p-4">
+              <p class="card-text mb-3">"RecipeShare has transformed my cooking experience. I've discovered so many amazing recipes and made great friends!"</p>
+              <div class="d-flex align-items-center">
+                <img src="imgs/Jim P.jpg?height=50&width=50" alt="User" class="rounded-circle me-3" width="50" height="50">
+                <div>
+                  <h5 class="card-title mb-0">Jim P.</h5>
+                  <small class="text-muted">Food Enthusiast</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="card border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body p-4">
+              <p class="card-text mb-3">"As a professional chef, I love sharing my recipes and getting inspired by others. RecipeShare is a game-changer!"</p>
+              <div class="d-flex align-items-center">
+                <img src="imgs/Kim S.jpg?height=50&width=50" alt="User" class="rounded-circle me-3" width="50" height="50">
+                <div>
+                  <h5 class="card-title mb-0">Kim S.</h5>
+                  <small class="text-muted">Home Cook</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="card border-0 shadow-sm rounded-lg hover-lift">
+            <div class="card-body p-4">
+              <p class="card-text mb-3">"I've learned so much about cooking from this community. RecipeShare has truly enriched my culinary journey!"</p>
+              <div class="d-flex align-items-center">
+                <img src="imgs/Mike F.jpg?height=50&width=50" alt="User" class="rounded-circle me-3" width="50" height="50">
+                <div>
+                  <h5 class="card-title mb-0">Mike F.</h5>
+                  <small class="text-muted">Professional Chef</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-gradient-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-4 animate__animated animate__fadeInUp">Ready to Start Your Culinary Adventure?</h2>
+      <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">Join RecipeShare today and become part of a passionate community of food lovers.</p>
+      <a href="/signup" class="btn btn-light btn-lg px-5 rounded-pill shadow-sm hover-lift animate__animated animate__fadeInUp animate__delay-2s">Sign Up Now</a>
+    </div>
+  </section>
+</main>
+
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  }
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  }
+  .btn-primary {
+    background-color: #2575fc;
+    border-color: #2575fc;
+  }
+  .btn-primary:hover {
+    background-color: #1c5cc9;
+    border-color: #1c5cc9;
+  }
+  .feature-icon {
+    width: 4rem;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rounded-lg {
+    border-radius: 1rem!important;
+  }
+  .z-index-1 {
+    z-index: 1;
+  }
+  .bg-pattern {
+    background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+    opacity: 0.1;
+  }
+  .floating-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+  }
+  .floating-image-1 {
+    top: 70%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite;
+  }
+  .floating-image-2 {
+    top: 60%;
+    right: 5%;
+    animation: float 8s ease-in-out infinite;
+  }
+  .floating-image-3 {
+    bottom: 10%;
+    left: 40%;
+    animation: float 10s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
   }
 </style>
 
