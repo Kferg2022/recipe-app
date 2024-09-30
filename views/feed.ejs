@@ -1,5 +1,7 @@
 <%- include('partials/header') -%>
 
+<body>
+
 <div class="container-fluid bg-light py-5">
   <div class="container">
     <div class="row mb-4">
@@ -30,58 +32,5 @@
     </div>
   </div>
 </div>
-
-<style>
-  body {
-    background-color: #f8f9fa;
-  }
-  .card {
-    transition: all 0.3s ease-in-out;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)!important;
-  }
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  .btn-outline-primary {
-    color: #007bff;
-    border-color: #007bff;
-  }
-  .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  .recipe-image-container {
-    height: 200px;
-    overflow: hidden;
-  }
-  .recipe-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .card-body {
-    height: 150px;
-  }
-  .card-title {
-    height: 48px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  p.card-text {
-    text-align: center;
-  }
-
-</style>
 
 <%- include('partials/footer') -%>
